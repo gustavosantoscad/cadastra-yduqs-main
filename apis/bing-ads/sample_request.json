@@ -1,0 +1,16 @@
+{
+  "project_id": "seu-projeto-gcp",
+  "destination_table": "raw.tb_bing_ads_api",
+  "if_exists": "append",
+  "developer_token": "SEU_DEVELOPER_TOKEN",
+  "client_id": "SEU_CLIENT_ID",
+  "client_secret": "SEU_CLIENT_SECRET",
+  "refresh_token": "SEU_REFRESH_TOKEN",
+  "customer_id": "123456789",
+  "account_ids": [
+    "987654321"
+  ],
+  "report_type": "CampaignPerformanceReport",
+  "start_date": "2025-01-01",
+  "end_date": "2025-01-31"
+}

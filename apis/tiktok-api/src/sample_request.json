@@ -1,0 +1,17 @@
+{
+"access_token": "ace917ac698dc749bed7cdb93a49b602728851bb",
+"advertiser_ids": [
+  "7011631165459185665"
+],
+"project_id": "cadastra-yducs-prod",
+"dataset_id": "RAW",
+"if_exists": "append",
+  "report_types": [
+    "advertiser",
+    "campaign",
+    "adgroup",
+    "ad"
+  ],
+  "start_date": "2025-01-01",
+  "end_date": "2025-01-15"
+}

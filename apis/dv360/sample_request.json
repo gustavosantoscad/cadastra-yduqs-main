@@ -1,0 +1,15 @@
+{
+  "project_id": "seu-projeto-gcp",
+  "destination_table": "raw.tb_dv360_api",
+  "if_exists": "append",
+  "client_id": "SEU_CLIENT_ID.apps.googleusercontent.com",
+  "client_secret": "SEU_CLIENT_SECRET",
+  "refresh_token": "SEU_REFRESH_TOKEN",
+  "partner_id": "123456",
+  "advertiser_ids": [
+    "789012345"
+  ],
+  "query_id": null,
+  "start_date": "2025-01-01",
+  "end_date": "2025-01-31"
+}

@@ -1,0 +1,15 @@
+{
+  "project_id": "cadastra-yducs-prod",
+  "destination_table": "raw.tb_google_ads_api",
+  "if_exists": "append",
+  "developer_token": "fsa1sDLDD0AhuiII5tES5Q",
+  "refresh_token": "1//0hEAj20UmoHo2CgYIARAAGBESNwF-L9Iruw1bDgJXRUGVu1Gol7ZMI4FDlsxrUbsevitLr6LbEpqKpjpZiUb3-XK0Euj2VIcobto",
+  "client_id": "76816773014-6q58io96i6qeb6jfvu89a95kcr1dvlct.apps.googleusercontent.com",
+  "client_secret": "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",
+  "login_customer_id": "7321488678",
+  "customer_ids": [
+    "9728584838"
+  ],
+  "start_date": "2025-01-01",
+  "end_date": "2026-01-14"
+}

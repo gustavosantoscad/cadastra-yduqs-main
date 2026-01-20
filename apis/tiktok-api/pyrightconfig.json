@@ -1,0 +1,38 @@
+{
+    "include": [
+        "src",
+        "run_local"
+    ],
+    "exclude": [
+        "**/__pycache__",
+        "**/node_modules",
+        "**/venv",
+        "**/.venv"
+    ],
+    "pythonVersion": "3.13",
+    "pythonPlatform": "Windows",
+    "typeCheckingMode": "basic",
+    "reportMissingImports": "warning",
+    "reportUnknownMemberType": false,
+    "reportUnknownVariableType": false,
+    "reportMissingTypeStubs": false,
+    "executionEnvironments": [
+        {
+            "root": "src",
+            "pythonVersion": "3.13",
+            "pythonPlatform": "Windows",
+            "extraPaths": [
+                "C:\\Users\\gusta\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages"
+            ]
+        },
+        {
+            "root": "run_local",
+            "pythonVersion": "3.13",
+            "pythonPlatform": "Windows",
+            "extraPaths": [
+                "src",
+                "C:\\Users\\gusta\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "python-envs.pythonProjects": [
+        {
+            "path": ".vscode",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ],
+    "cursor.terminal.usePreviewBox": true,
+    "terminal.integrated.automationProfile.windows": {
+        
+    }
+}
