@@ -1,0 +1,53 @@
+#!/bin/bash
+# Script para fazer push do repositório Yduqs para GitHub
+# Execute este script localmente após extrair os arquivos
+
+echo "=== Push do Repositório Yduqs para GitHub ==="
+echo ""
+
+# Verificar se está no diretório correto
+if [ ! -f "README.md" ] || [ ! -d ".git" ]; then
+    echo "❌ Erro: Execute este script no diretório raiz do repositório (yduqs-repo)"
+    exit 1
+fi
+
+# Verificar se o remote já existe
+if git remote get-url origin &> /dev/null; then
+    echo "✅ Remote 'origin' já configurado"
+else
+    echo "Configurando remote origin..."
+    git remote add origin https://github.com/gustavosantosw/cadastra-yduqs-main.git
+fi
+
+# Verificar status
+echo ""
+echo "Status do repositório:"
+git status
+
+echo ""
+echo "Branch atual:"
+git branch
+
+echo ""
+echo "Commits:"
+git log --oneline -n 5
+
+# Fazer push
+echo ""
+echo "Fazendo push para GitHub..."
+git push -u origin main
+
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "✅ Push realizado com sucesso!"
+    echo "Repositório: https://github.com/gustavosantosw/cadastra-yduqs-main"
+else
+    echo ""
+    echo "❌ Erro ao fazer push"
+    echo "Verifique suas credenciais do GitHub e tente novamente"
+    echo ""
+    echo "Se necessário, configure um Personal Access Token:"
+    echo "1. Vá em GitHub Settings > Developer settings > Personal access tokens"
+    echo "2. Gere um novo token com permissões de 'repo'"
+    echo "3. Use o token como senha ao fazer push"
+fi

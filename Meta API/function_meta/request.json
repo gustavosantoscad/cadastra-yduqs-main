@@ -1,9 +1,0 @@
-{
-  "account_list":  ["798851534955965"], /* INSIRA OS ACCOUNT IDS DO CLIENTE */
-  "fields_list": ["account_id, account_name, ad_id, adset_name, campaign_name, ad_name, impressions, clicks, inline_link_clicks, spend, cpm, video_play_actions, video_thruplay_watched_actions, video_p25_watched_actions,video_p100_watched_actions, reach, frequency"], /* EXEMPLOS DE CAMPOS */
-  "project_id": "kopenhagen-dev", /* PROJETO ONDE SERÃO SALVOS OS DADOS */
-  "destination_table": "raw.tb_meta_kop_api_v2", /* TABELA QUE SERÃO SALVOS OS DADOS */
-  "start_date": "", /* DATA DE INICIO ("YYYY-MM-DD") */
-  "end_date": "", /* DATA DE FIM ("YYYY-MM-DD") */
-  "if_exists": "append"
-}

@@ -1,64 +1,39 @@
-# Documentation
+# Documentação Técnica - Especificações e Manuais
 
-This directory contains project-wide documentation, guides, and standards.
+Este diretório concentra toda documentação técnica formal do projeto Yduqs, incluindo especificações de sistemas, manuais de usuário, documentos de arquitetura, diagramas e outros artefatos documentais essenciais para operação e manutenção do projeto.
 
-## Structure
+## Propósito
 
-```
-docs/
-├── architecture/            # Architecture documentation
-│   ├── decisions/           # Architecture Decision Records (ADRs)
-│   ├── diagrams/            # System diagrams
-│   └── overview.md          # System overview
-├── guides/                  # How-to guides
-│   ├── getting-started.md   # Getting started guide
-│   ├── contributing.md      # Contribution guidelines
-│   └── development.md       # Development guide
-├── standards/               # Coding standards
-│   ├── python.md            # Python standards
-│   ├── javascript.md        # JavaScript/TypeScript standards
-│   ├── go.md                # Go standards
-│   └── api-design.md        # API design standards
-├── runbooks/                # Operational runbooks
-│   ├── deployment.md        # Deployment procedures
-│   ├── incident-response.md # Incident response
-│   └── troubleshooting.md   # Common issues
-└── templates/               # Document templates
-    ├── adr-template.md      # ADR template
-    ├── readme-template.md   # README template
-    └── runbook-template.md  # Runbook template
-```
+O objetivo deste espaço é centralizar documentação oficial que descreve como sistemas funcionam, decisões arquiteturais tomadas, processos estabelecidos e procedimentos operacionais. Esta documentação serve como fonte única de verdade para entendimento técnico do projeto e facilita onboarding de novos membros da equipe.
 
-## Guidelines
+A documentação mantida aqui deve ser formal e estruturada, diferentemente de notas informais ou conteúdo exploratório que pode residir em outros diretórios. Cada documento deve passar por revisão apropriada antes de ser considerado oficial e deve ser mantido atualizado conforme sistemas evoluem.
 
-### Writing Documentation
+## Tipos de Documentação
 
-1. Use clear, concise language
-2. Include examples and code snippets
-3. Keep documentation up to date
-4. Use diagrams for complex concepts
-5. Link related documents
+Este diretório pode conter especificações técnicas detalhadas de sistemas e integrações, documentos de arquitetura descrevendo estrutura e componentes principais, manuais de operação e troubleshooting, guias de deployment e configuração, documentação de APIs e interfaces, diagramas de arquitetura, fluxos de dados e processos, além de documentos de requisitos e especificações funcionais.
 
-### Documentation Types
+Organize documentos por tema ou sistema, criando subdiretórios quando necessário para manter estrutura clara. Utilize formatos que facilitem versionamento e colaboração, como Markdown para documentos textuais, evitando formatos binários quando possível.
 
-- **Tutorials**: Step-by-step learning guides
-- **How-To Guides**: Task-oriented instructions
-- **Reference**: Technical descriptions
-- **Explanation**: Background and concepts
+## Qualidade e Manutenção
 
-### Recommended Tools
+Documentação desatualizada é pior que ausência de documentação, pois induz a erros e decisões baseadas em informações incorretas. Estabeleça processo de revisão periódica garantindo que documentos permaneçam relevantes e precisos.
 
-- **Markdown**: Primary documentation format
-- **Diagrams**: Mermaid, PlantUML, draw.io
-- **API Docs**: OpenAPI/Swagger, AsyncAPI
-- **Static Sites**: MkDocs, Docusaurus, VitePress
+Quando modificações significativas são feitas em sistemas, atualize documentação relacionada no mesmo ciclo de trabalho. Considere documentação parte integral do desenvolvimento, não atividade posterior opcional. Code reviews devem incluir verificação de atualização de documentação quando aplicável.
 
-### Best Practices
+## Estrutura Recomendada
 
-- Document as you code
-- Review documentation in PRs
-- Use consistent formatting
-- Include timestamps and authors
-- Version documentation with code
-- Test code examples
-- Get feedback from users
+Documentos técnicos devem seguir estrutura consistente facilitando navegação e compreensão. Inclua sempre sumário executivo ou overview no início, contexto e motivação para decisões tomadas, descrição detalhada de implementação ou arquitetura, diagramas e visualizações quando apropriado, exemplos práticos de uso ou configuração, e referências para documentação adicional ou recursos externos.
+
+Utilize templates para tipos comuns de documentos, garantindo consistência e completude. Templates ajudam autores a não esquecer seções importantes e facilitam leitura por audiência familiarizada com estrutura padrão.
+
+## Controle de Versão
+
+Utilize versionamento semântico ou esquema similar para documentos importantes, permitindo rastreamento de mudanças significativas. Mantenha changelog documentando modificações entre versões, facilitando identificação de alterações relevantes.
+
+Para documentos críticos, considere processo formal de aprovação antes de publicar novas versões, garantindo revisão apropriada por stakeholders relevantes. Archive versões antigas mantendo histórico acessível para referência quando necessário.
+
+## Acessibilidade e Distribuição
+
+Garanta que documentação seja facilmente acessível para todos que dela necessitam. Considere diferentes audiências ao escrever, adaptando nível técnico e detalhamento conforme público-alvo. Documentação para usuários finais deve ser mais simples e focada em tarefas práticas, enquanto documentação técnica para desenvolvedores pode ser mais detalhada e pressupor conhecimento técnico.
+
+Para documentação que precisa ser compartilhada externamente, revise cuidadosamente garantindo que não contém informações sensíveis ou proprietárias que não devem ser divulgadas. Mantenha versões internas e externas separadas quando necessário.

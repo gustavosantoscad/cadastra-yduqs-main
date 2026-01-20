@@ -1,52 +1,31 @@
-# APIs
+# APIs - Microsserviços e Integrações
 
-This directory contains REST APIs, GraphQL APIs, and backend services.
+Este diretório centraliza todo o código relacionado a APIs, microsserviços, cloud functions, SDKs e integrações do projeto Yduqs. A organização deste espaço permite manutenção eficiente e padronização no desenvolvimento de serviços.
 
-## Structure
+## Propósito
 
-```
-apis/
-├── <service-name>/          # Individual API service
-│   ├── src/                 # Source code
-│   ├── tests/               # Unit and integration tests
-│   ├── docs/                # API documentation
-│   ├── Dockerfile           # Container configuration
-│   ├── README.md            # Service-specific documentation
-│   └── ...                  # Language-specific config files
-└── shared/                  # Shared code across APIs
-    ├── middleware/          # Common middleware
-    ├── validators/          # Input validation
-    └── schemas/             # Shared data schemas
-```
+O diretório de APIs serve como repositório central para todos os serviços que expõem interfaces programáticas, sejam elas REST, GraphQL, gRPC ou qualquer outro protocolo. Aqui estão organizados tanto os serviços principais quanto utilitários e integrações com sistemas externos.
 
-## Guidelines
+## Organização Recomendada
 
-### Creating a New API
+Cada API ou microsserviço deve residir em seu próprio diretório, contendo todo o código necessário para execução independente. A estrutura interna de cada serviço deve incluir código-fonte, testes, configurações de deployment, documentação específica e dependências claramente definidas.
 
-1. Create a new directory with a descriptive name
-2. Include a README with:
-   - Service description
-   - Setup instructions
-   - API endpoints documentation
-   - Environment variables
-3. Add appropriate tests
-4. Include a Dockerfile for containerization
+Para facilitar a manutenção e o entendimento, cada serviço deve incluir um README próprio documentando seu propósito, endpoints disponíveis, autenticação necessária, exemplos de uso e instruções de deployment. Quando aplicável, utilize especificações OpenAPI ou Swagger para documentar a interface de forma padronizada.
 
-### Recommended Technologies
+## Desenvolvimento e Deployment
 
-- **Python**: FastAPI, Flask, Django REST Framework
-- **Node.js**: Express, NestJS, Fastify
-- **Go**: Gin, Echo, Fiber
-- **Java**: Spring Boot
-- **Rust**: Actix Web, Axum
+O desenvolvimento de novas APIs deve seguir os padrões estabelecidos no projeto, incluindo convenções de nomenclatura, estrutura de pastas e práticas de segurança. Utilize containerização (Docker) sempre que possível para garantir consistência entre ambientes de desenvolvimento, teste e produção.
 
-### Best Practices
+Para deployment, prefira serviços gerenciados como Google Cloud Run ou Cloud Functions, que oferecem escalabilidade automática e gerenciamento simplificado de infraestrutura. Mantenha configurações de deployment versionadas junto com o código, facilitando auditorias e rollbacks quando necessário.
 
-- Follow RESTful design principles
-- Implement proper error handling
-- Add request validation
-- Include authentication/authorization
-- Write comprehensive tests
-- Document all endpoints
-- Use environment variables for configuration
-- Implement health check endpoints
+## Segurança e Credenciais
+
+Nunca armazene credenciais, tokens ou chaves de API diretamente no código ou em arquivos de configuração commitados. Utilize Google Secret Manager ou serviços equivalentes para gerenciamento seguro de segredos. As APIs devem autenticar requisições de forma apropriada, utilizando OAuth, API keys ou outros mecanismos conforme necessário.
+
+Implemente rate limiting e monitoramento de uso para proteger os serviços contra abuso e para identificar padrões anormais de consumo. Logs estruturados devem ser configurados para facilitar debugging e auditoria de operações.
+
+## Testes e Qualidade
+
+Cada API deve incluir testes automatizados cobrindo casos de uso principais, tratamento de erros e validação de entrada. Utilize ferramentas de análise estática de código e linting para manter qualidade e consistência no codebase.
+
+Para APIs críticas, considere implementar testes de carga e performance para validar comportamento sob condições adversas. Documente os SLAs esperados e configure alertas para violações de performance ou disponibilidade.
