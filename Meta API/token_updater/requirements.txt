@@ -1,0 +1,5 @@
+--extra-index-url https://us-python.pkg.dev/cadastra-prd/cadastra/simple/
+functions-framework==3.*
+cadastra_core
+google-auth
+loguru
