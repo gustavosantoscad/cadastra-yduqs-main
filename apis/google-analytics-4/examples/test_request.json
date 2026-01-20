@@ -1,0 +1,27 @@
+{
+  "project_id": "cadastra-yducs-prod",
+  "secret_id": "76816773014-6q58io96i6qeb6jfvu89a95kcr1dvlct.apps.googleusercontent.com",
+  "property_id": "7321488678",
+  "bigquery_table": "GA4_001_DIM_METRICS",
+  "bigquery_dataset": "RAW",
+  "date_ranges": [
+    {
+      "start_date": "7daysAgo",
+      "end_date": "today",
+      "name": "Last 7 days"
+    }
+  ],
+  "dimensions": [
+    {"name": "country"},
+    {"name": "city"},
+    {"name": "deviceCategory"}
+  ],
+  "metrics": [
+    {"name": "activeUsers"},
+    {"name": "sessions"},
+    {"name": "screenPageViews"},
+    {"name": "conversions"}
+  ],
+  "limit": 1000,
+  "offset": 0
+}
