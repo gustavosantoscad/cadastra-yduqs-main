@@ -1,0 +1,12 @@
+steps:
+  # Etapa 1: Build da imagem
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/yduqsplace-1/gustavosantoscad-cadastra-yduqs-main/gcr.io/cloudrun/placeholder', '.']
+  
+  # Etapa 2: Push para o Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/yduqsplace-1/cloud-run-source-deploy/gcr.io/cloudrun/placeholder']
+
+images:
+  - 'us-central1-docker.pkg.dev/yduqsplace-1/cloud-run-source-deploy/gcr.io/cloudrun/placeholder'
+
