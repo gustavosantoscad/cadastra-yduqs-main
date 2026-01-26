@@ -1,0 +1,73 @@
+substitutions:
+  _REGION: us-west1
+  _REPO: cloud-run-source-deploy
+
+  # Nome do serviço Cloud Run (e nome da imagem) — por trigger
+  _SERVICE: ""
+  _IMAGE: ""
+
+  # Subpasta dentro de apis/ — por trigger (ex: "customers", "billing", etc.)
+  _API_DIR: ""
+
+  # Runtime Service Account do Cloud Run (a mesma para todas, como você pediu)
+  _RUNTIME_SA: "sa-yduqs-data-pipelines@yduqs-dev-485018.iam.gserviceaccount.com"
+
+  # Secrets e env vars compartilhados (ajuste conforme seu padrão)
+  # Formato: NAME=secret:version,NAME2=secret2:version
+  _SECRETS: ""
+  # Formato: KEY=VALUE,KEY2=VALUE2
+  _ENV_VARS: ""
+
+steps:
+  # Build + Push com Buildpacks (sem Dockerfile), forçando Python 3.12
+  - name: "gcr.io/k8s-skaffold/pack"
+    entrypoint: "bash"
+    args:
+      - "-ceu"
+      - |
+        if [[ -z "${_SERVICE}" || -z "${_IMAGE}" || -z "${_API_DIR}" ]]; then
+          echo "ERRO: defina _SERVICE, _IMAGE e _API_DIR nas substitutions do Trigger."
+          exit 1
+        fi
+
+        SRC="apis/${_API_DIR}"
+        IMAGE="${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:$SHORT_SHA"
+
+        # Buildpack Python
+        pack build "${IMAGE}" \
+          --builder "gcr.io/buildpacks/builder:v1" \
+          --path "${SRC}" \
+          --env "BP_PYTHON_VERSION=3.12.*" \
+          --publish
+
+  # Deploy Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "bash"
+    args:
+      - "-ceu"
+      - |
+        IMAGE="${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:$SHORT_SHA"
+
+        DEPLOY_ARGS=(
+          run deploy "${_SERVICE}"
+          --image "${IMAGE}"
+          --region "${_REGION}"
+          --platform managed
+          --service-account "${_RUNTIME_SA}"
+          --quiet
+        )
+
+        # Env vars (opcional)
+        if [[ -n "${_ENV_VARS}" ]]; then
+          DEPLOY_ARGS+=( --set-env-vars "${_ENV_VARS}" )
+        fi
+
+        # Secrets (opcional)
+        if [[ -n "${_SECRETS}" ]]; then
+          DEPLOY_ARGS+=( --set-secrets "${_SECRETS}" )
+        fi
+
+        gcloud "${DEPLOY_ARGS[@]}"
+
+images:
+  - "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:$SHORT_SHA"
